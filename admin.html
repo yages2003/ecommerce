@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y KART Admin Panel</title>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+    
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Y KART Admin</a>
+            <div class="nav-links">
+                <a href="index.html">User Page</a>
+            </div>
+            <div class="nav-actions">
+                <a onclick="logout()" class="nav-button login">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <h2 class="section-title">Admin Dashboard</h2>
+
+        <!-- Add Product Form -->
+        <div class="admin-section">
+            <h3>Add New Product</h3>
+            <form id="addProductForm" class="form">
+                <input type="text" id="productName" placeholder="Product Name" required>
+                <input type="number" id="productPrice" placeholder="Price" required>
+                <input type="number" id="productDiscountPrice" placeholder="Discount Price (optional)">
+                <input type="text" id="productBrand" placeholder="Brand" required>
+                <select id="productCategory">
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="cosmetics">Cosmetics</option>
+                    <option value="foodAndHealth">Food and Health</option>
+                </select>
+                <input type="number" id="productAvailability" placeholder="Availability" required>
+                <select id="productCurrency">
+                    <option value="USD">USD ($)</option>
+                    <option value="INR">INR (₹)</option>
+                </select>
+                <input type="text" id="productImageURLs" placeholder="Image URLs (comma-separated)">
+                <button type="submit">Add Product</button>
+            </form>
+            <div id="addProductMessage" class="message"></div>
+        </div>
+
+        <!-- Product List -->
+        <div class="admin-section">
+            <h3>Manage Products</h3>
+            <div id="productList" class="products"></div>
+        </div>
+
+        <!-- Order Management -->
+        <div class="admin-section">
+            <h3>Manage Orders</h3>
+            <div id="orderList" class="products"></div>
+        </div>
+
+        <!-- Analytics Section -->
+        <div class="admin-section">
+            <h3>Analytics</h3>
+            <div id="analytics">
+                <canvas id="salesBarChart" width="400" height="300"></canvas>
+                <canvas id="categoryPieChart" width="400" height="300"></canvas>
+                <canvas id="comparisonChart" width="400" height="300"></canvas>
+                <div id="topProducts" class="products"></div>
+                <div id="bottomProducts" class="products"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
